@@ -1,27 +1,19 @@
-apiVersion: v1
-kind: Deployment
+	apiVersion: v1
+kind: ReplicationController
 metadata:
-  name: scripted-demo
-  labels:
-    app: sample
-    role: leader
+  name: soaktestrc
 spec:
-  replicas: 2
+  replicas: 3
   selector:
-    matchLabels:
-      app: sample
+    app: soaktestrc
   template:
     metadata:
+      name: soaktestrc
       labels:
-        app: sample
-        role: leader
+        app: soaktestrc
     spec:
       containers:
-      - name: leader
-        image: "arpan741/scripted-demo:latest"
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
+      - name: soaktestrc
+        image: arpan741/scripted-demo:latest
         ports:
-        - containerPort: 6379		
+        - containerPort: 80
