@@ -13,4 +13,4 @@ RUN unzip adward.zip
 RUN cp -rvf adward/* .
 RUN rm -rf adward adward.zip
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
-EXPOSE 80
+EXPOSE 80 
