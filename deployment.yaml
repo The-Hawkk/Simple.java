@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: leader
-        image: "docker.io/scripted-demo"
+        image: "arpan741/scripted-demo:latest"
         resources:
           requests:
             cpu: 100m
