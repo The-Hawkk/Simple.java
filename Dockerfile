@@ -5,9 +5,10 @@ RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
 RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 RUN yum update -y
 RUN yum install -y httpd
+RUN yum install zip unzip
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page275/the7.zip /var/www/html/
 WORKDIR /var/www/html
-RUN unzip -f the7.zip
+RUN unzip the7.zip
 RUN cp -rvf the7/* .
 RUN rm -rf the7 the7.zip
 CMD ["/usr/sbin/httpd", "-0", "FOREGROUND"]
